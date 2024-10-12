@@ -1,0 +1,20 @@
+a: DB 0
+b: DB 0
+c: DB 0
+
+MOV A, 10     ; a = 10
+MOV [a], A
+
+MOV A, 20     ; b = 20
+MOV [b], A
+
+MOV A, [a]    ; c = a + b
+ADD A, [b]
+MOV [c], A
+
+MOV A, [c]    ; if (c == 30)
+CMP A, 30
+JNZ skip_if
+ADD A, 1      ; c = c + 1
+MOV [c], A
+skip_if:
